@@ -1,0 +1,38 @@
+[
+  {
+    "id": "66f9f41c93f74246353f00fa",
+    "name": "category-1a7c0019-edac-48af-8c7d-0ea80de3dd76",
+    "root": true,
+    "parentId": null
+  },
+  {
+    "id": "66f9f43793f74246353f00fc",
+    "name": "category-9b3f2be3-d241-4946-8b21-5175592e5502",
+    "root": true,
+    "parentId": null
+  },
+  {
+    "id": "66fa057393f74246353f00ff",
+    "name": "category-c55daaf5-490e-4f79-a3f5-340f0b788250",
+    "root": true,
+    "parentId": null
+  },
+  {
+    "id": "66fa057493f74246353f0100",
+    "name": "category-08db000b-cb47-49e7-84ae-d3d648c2f83e",
+    "root": false,
+    "parentId": null
+  },
+  {
+    "id": "66fa059e93f74246353f0102",
+    "name": "category-54f55755-a0a3-47a5-89be-85615b678884",
+    "root": true,
+    "parentId": null
+  },
+  {
+    "id": "66fa059e93f74246353f0103",
+    "name": "category-385f0dee-65b8-4bc2-b8f0-cadd56763211",
+    "root": false,
+    "parentId": null
+  }
+]

@@ -1,0 +1,73 @@
+## Playwright Test Suite for User Registration, Login, and Category Management
+
+This file explains the implementation of a Playwright test suite that covers user registration, login, and category management functionalities. The test suite utilizes TypeScript for enhanced code structure and readability, and relies on helper functions for generating random data and storing user credentials.
+
+**Project Structure:**
+
+The project is structured as follows:
+
+- **`src/pages/loginPage.ts`:**  Contains the `LoginPage` class, responsible for handling user registration and login interactions.
+- **`src/pages/categoryPage.ts`:** Contains the `CategoryPage` class, responsible for handling category creation and verification.
+- **`src/utils/userUtils.ts`:** Contains utility functions for:
+    - Generating unique email addresses, usernames, and passwords.
+    - Saving user data to a JSON file.
+    - Generating unique category names and IDs.
+- **`src/config/apiEndpoints.ts`:** Defines the endpoints for the API being tested.
+- **`playwright.config.ts`:** Configures Playwright for running the tests.
+
+**Implementation Details:**
+
+1. **`LoginPage` Class:**
+   - **`registerAndLogin()` method:** This method handles the complete registration and login process.
+     - It generates random user data (email, password, username) using utility functions.
+     - It performs a POST request to the `/registerUser` endpoint for registration.
+     - It validates the registration response, ensuring that the user is registered successfully.
+     - It saves user data to a JSON file for later use.
+     - It performs a POST request to the `/loginUser` endpoint for login using the registered credentials.
+     - It validates the login response, ensuring that the user is logged in successfully.
+     - It returns the generated authentication token and the user ID.
+
+2. **`CategoryPage` Class:**
+   - **`createRandomCategory()` method:** Creates a new root category with a random name.
+     - It generates a unique ID and a random category name.
+     - It performs a POST request to the `/createCategory` endpoint to create the category.
+     - It validates the response, ensuring that the category is created successfully.
+     - It returns the details of the created category (ID, name, parent ID, and root status).
+   - **`createSubCategory()` method:** Creates a new subcategory under a given parent category.
+     - It takes the parent category ID as an argument.
+     - It generates a unique ID and a random category name.
+     - It performs a POST request to the `/createCategory` endpoint to create the subcategory.
+     - It validates the response, ensuring that the subcategory is created successfully.
+     - It returns the details of the created subcategory.
+   - **`verifySubCategoryExists()` method:** Verifies if a subcategory exists under a given parent category.
+     - It takes the parent category ID and the subcategory name as arguments.
+     - It constructs the `/subCategoryList` endpoint using the parent category ID.
+     - It performs a GET request to the constructed endpoint to retrieve the list of subcategories.
+     - It validates the response, ensuring that the list of subcategories is retrieved successfully.
+     - It checks if the given subcategory name exists in the retrieved list.
+
+3. **`userUtils.ts`:**
+   - **`generateUniqueEmail()`, `generateUsername()`, `generatePassword()`:** These functions generate unique email addresses, usernames, and passwords using UUIDs and cryptographic methods.
+   - **`saveUserData()`:** This function saves user data (email, password, username, and user ID) to a JSON file.
+   - **`generateRandomCategoryName()`, `generateUniqueId()`:** These functions generate unique category names and IDs using UUIDs.
+
+**Running the Tests:**
+
+1. **Prerequisites:**
+   - Install Node.js and npm or yarn.
+   - Install Playwright: `npm install -g playwright` or `yarn global add playwright`.
+   - Ensure the necessary browser dependencies are installed: `npx playwright install`.
+2. **Run the tests:**
+   - From the project root directory, run: `npx playwright test`.
+
+**Enhancements:**
+
+- **Data-Driven Testing:** Implement data-driven testing by reading test data from a file or database.
+- **Advanced Validation:** Add more comprehensive validations for the API responses to ensure that the expected data is returned.
+- **Error Handling:** Implement more robust error handling to handle unexpected API responses or other exceptions.
+- **Reporting:** Integrate a reporting framework (e.g., Allure or Mocha) to generate comprehensive test reports.
+
+**Note:**
+
+This documentation assumes the existence of the API endpoints defined in `src/config/apiEndpoints.ts`. Replace these with the actual API endpoints you are testing.
+

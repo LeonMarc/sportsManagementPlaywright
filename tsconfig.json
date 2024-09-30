@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",        // O el target de tu preferencia, pero contemporáneo
+    "module": "ESNext",        // Asegúrate de usar "ESNext" para la compatibilidad con módulos ES
+    "strict": true,
+    "esModuleInterop": true,   // Permite importaciones y exportaciones de módulos comunes de ES
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",          // Directorio de salida
+    "moduleResolution": "node" // Usa el resolutor de módulos de Node
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
