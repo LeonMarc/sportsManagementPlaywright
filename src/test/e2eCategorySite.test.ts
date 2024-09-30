@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/loginPage'; 
 import { CategoryPage } from '../pages/categoryPage'; 
-import { DashboardPage } from '../pages/dashboardPage'; 
 
 // Helper function to create a subcategory and verify its existence
 async function createAndVerifySubCategory(page: Page, token: string, parentId: string) {
